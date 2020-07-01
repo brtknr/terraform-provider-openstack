@@ -234,8 +234,8 @@ func flattenContainerInfraV1Kubeconfig(d *schema.ResourceData, containerInfraCli
 	}
 
 	kubeconfig = map[string]interface{}{
-		"raw_config":             string(rawKubeconfig),
-		"host":                   host,
+		"raw_config": string(rawKubeconfig),
+		"host":       host,
 		"cluster_ca_certificate": certificateAuthority.PEM,
 		"client_certificate":     clientCertificate.PEM,
 		"client_key":             string(pemClientKey),
@@ -255,7 +255,7 @@ func renderKubeconfig(name string, host string, clusterCaCertificate []byte, cli
 				Name: name,
 				Cluster: kubernetesConfigClusterData{
 					CertificateAuthorityData: base64.StdEncoding.EncodeToString(clusterCaCertificate),
-					Server:                   host,
+					Server: host,
 				},
 			},
 		},
